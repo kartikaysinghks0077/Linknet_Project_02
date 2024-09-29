@@ -1,7 +1,7 @@
-Satellite Image Segmentation with LinkNet
+#Satellite Image Segmentation with LinkNet
 This project implements a deep learning model for segmenting satellite images using a LinkNet architecture. The dataset contains satellite images and corresponding masks with four different classes of objects: forest, vegetation, urban areas, and water bodies. The segmentation is performed using a custom multi-class LinkNet model trained on these images.
 
-Table of Contents
+##Table of Contents
 Introduction
 Dataset
 Model Architecture
@@ -11,13 +11,16 @@ Evaluation
 Results
 Installation
 Usage
-Introduction
+
+
+#Introduction
 The goal of this project is to segment satellite images into four distinct classes:
 
 Forest (#0f510d)
 Vegetation (#00ff00)
 Urban areas (#ffafaf)
 Water bodies (#0000ff)
+
 A LinkNet architecture is used for image segmentation, combined with custom losses like Dice Loss and Focal Loss to improve accuracy. The performance of the model is evaluated using metrics such as Intersection over Union (IoU) and accuracy.
 
 Dataset
@@ -57,17 +60,16 @@ Loss functions used are a combination of Dice Loss and Focal Loss.
 The model is compiled with the following parameters:
 
 python
-Copy code
 model.compile(optimizer='adam', loss=total_loss, metrics=['accuracy', jacard_coef])
 Model Training Command:
 python
-Copy code
+
 history = model.fit(X_train, y_train, 
                     batch_size=16, 
                     epochs=200, 
                     validation_data=(X_test, y_test),
                     shuffle=False)
-Evaluation
+#Evaluation
 The model is evaluated on the test set using:
 
 IoU (Jaccard Coefficient): Calculated using Keras' MeanIoU function.
@@ -75,7 +77,7 @@ Accuracy: Average accuracy across all classes.
 Evaluation Results:
 
 python
-Copy code
+
 Mean IoU = <calculated IoU>
 Accuracy = <calculated accuracy>
 Results
@@ -91,7 +93,7 @@ Predicted Mask
 Example visualizations:
 
 python
-Copy code
+
 plt.subplot(231)
 plt.title('Testing Image')
 plt.imshow(test_img)
@@ -104,30 +106,19 @@ plt.subplot(233)
 plt.title('Prediction')
 plt.imshow(predicted_img_color)
 plt.show()
-Installation
-Clone the repository:
 
-bash
-Copy code
-git clone <repository-url>
-cd <repository-directory>
-Install the required libraries:
 
-bash
-Copy code
-pip install -r requirements.txt
-Mount your Google Drive if using Google Colab:
+
+
+
 
 python
-Copy code
+
 from google.colab import drive
 drive.mount('/content/drive')
 Install segmentation models:
 
-bash
-Copy code
-pip install -U segmentation-models
-Usage
+
 Prepare Dataset:
 
 Store your satellite images in images/ and corresponding masks in masks/.
@@ -150,7 +141,3 @@ Use the provided visualization code to compare ground truth and predicted masks.
 Conclusion
 This project successfully segments satellite images into multiple classes using the LinkNet architecture. The combination of Dice Loss and Focal Loss enhances segmentation performance. Further improvements can include trying different architectures, adding more classes, or augmenting the dataset.
 
-License
-This project is licensed under the MIT License.
-
-This README provides a clear guide to your project setup, training, evaluation, and usage. Let me know if you'd like to modify any sections!
