@@ -1,4 +1,5 @@
 #Satellite Image Segmentation with LinkNet
+
 This project implements a deep learning model for segmenting satellite images using a LinkNet architecture. The dataset contains satellite images and corresponding masks with four different classes of objects: forest, vegetation, urban areas, and water bodies. The segmentation is performed using a custom multi-class LinkNet model trained on these images.
 
 ##Table of Contents
